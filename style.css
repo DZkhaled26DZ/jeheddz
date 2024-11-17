@@ -1,0 +1,135 @@
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #4a90e2;
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-color: #e1e1e1;
+  --border-color: #333;
+  --success-color: #4caf50;
+  --danger-color: #f44336;
+  --input-bg: #2d2d2d;
+  --modal-bg: rgba(0, 0, 0, 0.8);
+}
+
+/* Previous CSS remains the same until table styles */
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: var(--input-bg);
+}
+
+.action-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.refresh-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.refresh-btn:hover {
+  background-color: #357abd;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--modal-bg);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.price-targets {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--input-bg);
+  border-radius: 4px;
+}
+
+.price-target {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.live-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--success-color);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.currency-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.info-item {
+  background-color: var(--input-bg);
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.emoji-indicator {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}

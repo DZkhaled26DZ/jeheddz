@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل الشموع اليابانية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>تحليل الشموع اليابانية للعملات الرقمية</h1>
+    </header>
+
+    <main>
+        <section class="filters">
+            <h2>تحديد شروط التحليل</h2>
+            <form id="filters-form">
+                <div class="filter-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enable-lower-tail" name="enable-lower-tail">
+                        <label for="enable-lower-tail">تفعيل شرط الذيل السفلي</label>
+                    </div>
+                    <div class="input-group">
+                        <label for="lower-tail">نسبة ذيل الشمعة السفلي:</label>
+                        <input type="number" id="lower-tail" name="lower-tail" min="0" max="100" step="0.1" placeholder="0-100">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enable-upper-tail" name="enable-upper-tail">
+                        <label for="enable-upper-tail">تفعيل شرط الذيل العلوي</label>
+                    </div>
+                    <div class="input-group">
+                        <label for="upper-tail">نسبة ذيل الشمعة العلوي:</label>
+                        <input type="number" id="upper-tail" name="upper-tail" min="0" max="100" step="0.1" placeholder="0-100">
+                    </div>
+                </div>
+
+                <div class="controls-group">
+                    <button type="submit" class="button submit-btn">تطبيق الفلاتر</button>
+                    <button type="button" id="live-toggle" class="button live-toggle inactive">
+                        <span class="status-indicator inactive"></span>
+                        التحليل المباشر
+                    </button>
+                    <button type="button" id="stop-analysis" class="button stop-btn" style="display: none;">
+                        إيقاف التحليل
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="currency-list">
+            <h2>العملات المتوافقة مع الشروط</h2>
+            <button id="refresh-data" class="refresh-btn">
+                🔄 تحديث البيانات
+            </button>
+            <div class="table-container">
+                <table id="currency-table">
+                    <thead>
+                        <tr>
+                            <th>اسم العملة</th>
+                            <th>السعر اللحظي</th>
+                            <th>نسبة التداول</th>
+                            <th>زمن تحقق الشمعة</th>
+                            <th>التوصية</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <h2>الرسم البياني للعملات</h2>
+            <canvas id="currency-chart"></canvas>
+        </section>
+    </main>
+
+    <!-- Modal for Trading Recommendations -->
+    <div id="trading-modal" class="modal">
+        <div class="modal-content">
+            <button id="close-modal" class="close-modal">×</button>
+            <h2 id="modal-symbol" style="text-align: center;"></h2>
+            <div class="emoji-indicator">📈</div>
+            <div id="live-price" class="live-price"></div>
+            <div id="price-targets" class="price-targets"></div>
+            <div id="currency-info" class="currency-info"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 السيد خالد دراغة</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
